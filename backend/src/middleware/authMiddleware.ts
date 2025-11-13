@@ -11,7 +11,7 @@ export const authMiddleware = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const token = req.cookies[env?.COOKIE_NAME || 'auth_token'];
+    const token = req.cookies[env.COOKIE_NAME];
 
     if (!token) {
       throw new AppError(401, 'Authentication required. Please log in.');
@@ -34,9 +34,9 @@ export const authMiddleware = async (
     next();
   } catch (error) {
     // If token is invalid or expired, clear the cookie
-    res.clearCookie(env?.COOKIE_NAME || 'auth_token', {
+    res.clearCookie(env.COOKIE_NAME, {
       httpOnly: true,
-      secure: env?.NODE_ENV === 'production' || false,
+      secure: env.NODE_ENV === 'production',
       sameSite: 'strict',
       path: '/',
     });

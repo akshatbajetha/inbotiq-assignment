@@ -39,10 +39,10 @@ export const errorHandler = (
 
   res.status(500).json({
     success: false,
-    message: env?.NODE_ENV === 'production' 
+    message: env.NODE_ENV === 'production' 
       ? 'Internal server error' 
       : err.message,
-    ...(env?.NODE_ENV !== 'production' && { stack: err.stack }),
+    ...(env.NODE_ENV !== 'production' && { stack: err.stack }),
   });
 };
 
