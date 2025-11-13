@@ -3,7 +3,6 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 
-// Load environment variables FIRST, before any other imports that might use them
 dotenv.config();
 
 import authRoutes from './routes/auth.routes';
