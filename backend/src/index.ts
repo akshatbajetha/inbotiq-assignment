@@ -1,9 +1,13 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 
-// Load environment variables
+// Load environment variables FIRST, before any other imports that might use them
 dotenv.config();
+
+import authRoutes from './routes/auth.routes';
+import { errorHandler } from './middleware/errorHandler';
 
 const app: Express = express();
 const PORT = process.env.PORT || 5000;
@@ -12,11 +16,18 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
+
+// Routes
+app.use('/api/auth', authRoutes);
 
 // Health check route
 app.get('/', (req: Request, res: Response) => {
   res.json({ message: 'Backend API is running!' });
 });
+
+// Error handler middleware
+app.use(errorHandler);
 
 // Start server
 app.listen(PORT, () => {
