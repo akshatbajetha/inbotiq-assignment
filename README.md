@@ -50,7 +50,7 @@ This application provides a complete authentication system with role-based acces
   - Logout functionality
 
 - **UI/UX**
-  - Clean, minimal design inspired by Notion/Cal.com
+  - Clean, minimal design
   - Dark and light theme toggle
   - Responsive design
   - Loading states with skeleton screens
@@ -87,7 +87,6 @@ This application provides a complete authentication system with role-based acces
 - **Form Handling**: React Hook Form with Zod resolver
 - **HTTP Client**: Axios
 - **Theme**: next-themes
-- **Notifications**: Sonner (toast notifications)
 
 ## 📁 Project Structure
 
@@ -141,7 +140,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/akshatbajetha/inbotiq-assignment
 cd InbotiqAssignment
 ```
 
@@ -160,8 +159,7 @@ cp .env.example .env
 # Generate Prisma Client
 npx prisma generate
 
-# Run database migrations
-npx prisma migrate dev
+npx prisma db push
 
 # Build TypeScript
 npm run build
@@ -180,47 +178,6 @@ cp .env.example .env.local
 # Edit .env.local with your backend API URL
 ```
 
-## 🔐 Environment Variables
-
-### Backend (.env)
-
-Create a `.env` file in the `backend` directory:
-
-```env
-# Database
-DATABASE_URL="postgresql://user:password@host:port/database?schema=public"
-DIRECT_URL="postgresql://user:password@host:port/database?schema=public"
-
-# Server
-PORT=5000
-NODE_ENV=development
-
-# JWT Configuration
-JWT_SECRET=your-super-secret-jwt-key-min-32-characters-long
-JWT_EXPIRES_IN=1w
-
-# Cookie Configuration
-COOKIE_NAME=auth_token
-COOKIE_DOMAIN=
-
-# CORS
-FRONTEND_URL=http://localhost:3000
-```
-
-**Important Notes:**
-- `JWT_SECRET`: Use a strong, random string (minimum 32 characters)
-- `DATABASE_URL`: Your Supabase/PostgreSQL connection string
-- `FRONTEND_URL`: Your frontend URL (for CORS configuration)
-
-### Frontend (.env.local)
-
-Create a `.env.local` file in the `frontend` directory:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:5000
-```
-
-For production, update this to your deployed backend URL.
 
 ## ▶️ Running the Project
 
