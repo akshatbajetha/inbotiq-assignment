@@ -7,11 +7,13 @@ export class AppError extends Error {
     this.statusCode = statusCode;
     this.isOperational = isOperational;
 
-    if (Error.captureStackTrace) {
+    // Capture stack trace if available (Node.js)
+    if (typeof Error.captureStackTrace === 'function') {
       Error.captureStackTrace(this, AppError);
     }
 
     this.name = this.constructor.name;
+    Object.setPrototypeOf(this, AppError.prototype);
   }
 }
 

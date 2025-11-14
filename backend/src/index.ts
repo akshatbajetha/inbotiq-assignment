@@ -5,17 +5,18 @@ import cookieParser from 'cookie-parser';
 
 dotenv.config();
 
+import { env } from './config/env';
 import authRoutes from './routes/auth.routes';
 import { errorHandler } from './middleware/errorHandler';
 
 const app: Express = express();
-const PORT = process.env.PORT || 5000;
+const PORT = parseInt(env.PORT, 10);
 
 // Middleware
-app.use(cors( {
-  origin: process.env.FRONTEND_URL,
+app.use(cors({
+  origin: env.FRONTEND_URL || process.env.FRONTEND_URL,
   credentials: true,
-} ));
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

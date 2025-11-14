@@ -218,7 +218,7 @@ npm start
 ### Base URL
 
 - **Development**: `http://localhost:5000`
-- **Production**: `https://your-backend-url.onrender.com`
+- **Production**: `https://role-base-auth-backend.onrender.com`
 
 ### Authentication Endpoints
 
@@ -345,48 +345,10 @@ All error responses follow this format:
 
 ## 🚢 Deployment
 
-### Backend Deployment (Render)
+The application is deployed and publicly accessible:
 
-1. **Create a Render Account**
-   - Sign up at [render.com](https://render.com)
-
-2. **Create a New Web Service**
-   - Connect your GitHub repository
-   - Select the `backend` folder as the root directory
-
-3. **Configure Build Settings**
-   - **Build Command**: `npm install && npx prisma generate && npm run build`
-   - **Start Command**: `npm start`
-
-4. **Set Environment Variables**
-   - Add all variables from your `.env` file
-   - Update `FRONTEND_URL` to your Vercel deployment URL
-   - Update `NODE_ENV` to `production`
-
-5. **Database Setup**
-   - Use your Supabase PostgreSQL connection string
-   - Run migrations: `npx prisma migrate deploy` (in Render shell or add to build command)
-
-### Frontend Deployment (Vercel)
-
-1. **Create a Vercel Account**
-   - Sign up at [vercel.com](https://vercel.com)
-
-2. **Import Your Repository**
-   - Connect your GitHub repository
-   - Select the `frontend` folder as the root directory
-
-3. **Configure Environment Variables**
-   - Add `NEXT_PUBLIC_API_URL` with your Render backend URL
-
-4. **Deploy**
-   - Vercel will automatically detect Next.js and deploy
-
-### Post-Deployment
-
-1. Update backend `FRONTEND_URL` environment variable with your Vercel URL
-2. Redeploy backend to apply CORS changes
-3. Test the complete authentication flow
+- **Backend**: Deployed on [Render.com](https://render.com) at [https://role-base-auth-backend.onrender.com](https://role-base-auth-backend.onrender.com)
+- **Frontend**: Deployed on [Vercel](https://vercel.com) at [https://role-based-auth-inbotiq.vercel.app](https://role-based-auth-inbotiq.vercel.app)
 
 ## 📂 Project Structure Details
 
@@ -521,10 +483,8 @@ This project fulfills all mandatory requirements for the Full-Stack Mini Project
 
 ## 🔗 Live Deployment
 
-- **Frontend**: [Your Vercel Deployment URL]
-- **Backend**: [Your Render Deployment URL]
-
-*Note: Update these URLs after deployment*
+- **Backend**: [https://role-base-auth-backend.onrender.com](https://role-base-auth-backend.onrender.com) (deployed on Render.com)
+- **Frontend**: [https://role-based-auth-inbotiq.vercel.app](https://role-based-auth-inbotiq.vercel.app) (deployed on Vercel)
 
 ## 📚 Implementation Highlights
 
