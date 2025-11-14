@@ -34,10 +34,11 @@ export const authMiddleware = async (
     next();
   } catch (error) {
     // If token is invalid or expired, clear the cookie
+    const isProduction = env.NODE_ENV === 'production';
     res.clearCookie(env.COOKIE_NAME, {
       httpOnly: true,
-      secure: env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: isProduction,
+      sameSite: isProduction ? 'none' : 'lax',
       path: '/',
     });
 

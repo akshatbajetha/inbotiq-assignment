@@ -420,20 +420,6 @@ frontend/
 - **Type Safety**: TypeScript throughout
 - **Error Handling**: User-friendly error messages
 
-## 🧪 Testing
-
-### Manual Testing Checklist
-
-- [ ] User signup with USER role
-- [ ] User signup with ADMIN role
-- [ ] Login with valid credentials
-- [ ] Login with invalid credentials
-- [ ] Access dashboard when authenticated
-- [ ] Redirect to login when not authenticated
-- [ ] Logout functionality
-- [ ] Theme toggle (dark/light)
-- [ ] Protected route access
-- [ ] Form validation errors
 
 ## 📊 Assignment Requirements Fulfilled
 
@@ -517,7 +503,7 @@ This assignment demonstrates proficiency in:
 - TypeScript and type safety
 - Modern React patterns (Next.js App Router, hooks, state management)
 
-## 🙏 Technologies & Libraries
+## Technologies & Libraries
 
 - [Next.js](https://nextjs.org/) - React framework for production
 - [Express.js](https://expressjs.com/) - Fast, unopinionated web framework

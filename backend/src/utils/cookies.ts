@@ -9,8 +9,8 @@ export const setAuthCookie = (res: Response, token: string): void => {
 
   res.cookie(env.COOKIE_NAME, token, {
     httpOnly: true,
-    secure: isProduction,
-    sameSite: 'strict',
+    secure: isProduction, // Must be true for cross-site cookies
+    sameSite: isProduction ? 'none' : 'lax', // 'none' for cross-site, 'lax' for same-site
     maxAge: maxAge,
     path: '/',
     ...(env.COOKIE_DOMAIN && { domain: env.COOKIE_DOMAIN }),
@@ -19,10 +19,11 @@ export const setAuthCookie = (res: Response, token: string): void => {
 
 // Clears the authentication cookie
 export const clearAuthCookie = (res: Response): void => {
+  const isProduction = env.NODE_ENV === 'production';
   res.clearCookie(env.COOKIE_NAME, {
     httpOnly: true,
-    secure: env.NODE_ENV === 'production' || false,
-    sameSite: 'strict',
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
     path: '/',
     ...(env.COOKIE_DOMAIN && { domain: env.COOKIE_DOMAIN }),
   });
