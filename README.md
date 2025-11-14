@@ -197,22 +197,6 @@ npm run dev
 # Application runs on http://localhost:3000
 ```
 
-### Production Build
-
-**Backend:**
-```bash
-cd backend
-npm run build
-npm start
-```
-
-**Frontend:**
-```bash
-cd frontend
-npm run build
-npm start
-```
-
 ## 📡 API Documentation
 
 ### Base URL
